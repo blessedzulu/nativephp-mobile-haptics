@@ -1,0 +1,62 @@
+{
+    "name": "blessedzulu/nativephp-mobile-haptics",
+    "description": "Haptic feedback plugin for NativePHP Mobile - impact, notification, selection, vibrate & pattern. Fork of graymatter/nativephp-mobile-haptics, modernised for Laravel 13.",
+    "type": "nativephp-plugin",
+    "license": "MIT",
+    "keywords": [
+        "nativephp",
+        "haptics",
+        "vibration",
+        "mobile",
+        "laravel",
+        "plugin"
+    ],
+    "authors": [
+        {
+            "name": "GrayMatter",
+            "email": "hello@graymatter.dev",
+            "role": "Original author"
+        },
+        {
+            "name": "Blessed Zulu",
+            "email": "blessedmattzulu@gmail.com",
+            "role": "Fork maintainer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BlessedZulu\\NativePHP\\Mobile\\Haptics\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BlessedZulu\\NativePHP\\Mobile\\Haptics\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BlessedZulu\\NativePHP\\Mobile\\Haptics\\HapticsServiceProvider"
+            ],
+            "aliases": {
+                "Haptics": "BlessedZulu\\NativePHP\\Mobile\\Haptics\\Facades\\Haptics"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

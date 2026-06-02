@@ -1,0 +1,77 @@
+{
+    "name": "blessedzulu/nativephp-mobile-haptics",
+    "version": "1.1.0",
+    "description": "Haptic feedback for NativePHP Mobile apps - impact, notification, selection, vibrate & pattern.",
+    "platforms": {
+        "ios": {
+            "min_version": "13.0",
+            "permissions": [],
+            "swift_files": [
+                "resources/ios/HapticsFunctions.swift"
+            ]
+        },
+        "android": {
+            "min_version": 26,
+            "permissions": [
+                "android.permission.VIBRATE"
+            ],
+            "kotlin_files": [
+                "resources/android/HapticsFunctions.kt"
+            ]
+        }
+    },
+    "bridge_functions": [
+        {
+            "name": "Haptics.Impact",
+            "params": {
+                "style": {
+                    "type": "string",
+                    "required": false,
+                    "default": "medium"
+                }
+            }
+        },
+        {
+            "name": "Haptics.Notification",
+            "params": {
+                "type": {
+                    "type": "string",
+                    "required": false,
+                    "default": "success"
+                }
+            }
+        },
+        {
+            "name": "Haptics.Selection",
+            "params": {}
+        },
+        {
+            "name": "Haptics.Vibrate",
+            "params": {
+                "duration": {
+                    "type": "integer",
+                    "required": false,
+                    "default": 200
+                }
+            }
+        },
+        {
+            "name": "Haptics.Pattern",
+            "params": {
+                "pattern": {
+                    "type": "array",
+                    "required": true
+                }
+            }
+        }
+    ],
+    "events": [],
+    "js_files": [
+        "resources/js/haptics.js"
+    ],
+    "boost": {
+        "guidelines": [
+            "resources/boost/guidelines/core.blade.php"
+        ]
+    }
+}
