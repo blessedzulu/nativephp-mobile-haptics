@@ -80,7 +80,9 @@ class Haptics
         }
 
         try {
-            nativephp_call($function, $params);
+            // NativePHP core's bridge expects the params as a JSON string
+            // (e.g. nativephp_call('Device.Vibrate', '{}')), not a PHP array.
+            nativephp_call($function, json_encode((object) $params));
 
             return true;
         } catch (\Throwable) {

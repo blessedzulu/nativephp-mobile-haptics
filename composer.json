@@ -26,7 +26,8 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/support": "^11.0|^12.0|^13.0"
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "nativephp/mobile": "^3.0"
     },
     "require-dev": {
         "orchestra/testbench": "^9.0|^10.0|^11.0",
@@ -50,6 +51,9 @@
             "aliases": {
                 "Haptics": "BlessedZulu\\NativePHP\\Mobile\\Haptics\\Facades\\Haptics"
             }
+        },
+        "nativephp": {
+            "manifest": "nativephp.json"
         }
     },
     "config": {

@@ -16,32 +16,37 @@ test('nativephp.json manifest exists and is valid JSON', function () {
     $manifest = json_decode(file_get_contents($path), true);
 
     expect($manifest)->toBeArray()
-        ->and($manifest['name'])->toBe('blessedzulu/nativephp-mobile-haptics');
+        ->and($manifest['namespace'])->toBe('Haptics');
 });
 
-test('manifest declares all 5 bridge functions', function () {
+test('manifest maps all 5 bridge functions to native classes', function () {
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/nativephp.json'), true);
 
-    $names = array_column($manifest['bridge_functions'], 'name');
+    $byName = collect($manifest['bridge_functions'])->keyBy('name');
 
-    expect($names)->toContain('Haptics.Impact')
-        ->toContain('Haptics.Notification')
-        ->toContain('Haptics.Selection')
-        ->toContain('Haptics.Vibrate')
-        ->toContain('Haptics.Pattern');
+    foreach (['Haptics.Impact', 'Haptics.Notification', 'Haptics.Selection', 'Haptics.Vibrate', 'Haptics.Pattern'] as $name) {
+        expect($byName)->toHaveKey($name)
+            ->and($byName[$name])->toHaveKeys(['ios', 'android']);
+    }
+
+    // Android refs must be vendor-namespaced fully-qualified class paths.
+    expect($byName['Haptics.Impact']['android'])
+        ->toBe('com.blessedzulu.plugins.haptics.HapticsFunctions.Impact')
+        ->and($byName['Haptics.Impact']['ios'])->toBe('HapticsFunctions.Impact');
 });
 
 test('manifest declares VIBRATE permission for Android', function () {
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/nativephp.json'), true);
 
-    expect($manifest['platforms']['android']['permissions'])
+    expect($manifest['android']['permissions'])
         ->toContain('android.permission.VIBRATE');
 });
 
-test('manifest declares no permissions for iOS', function () {
+test('manifest declares an iOS minimum version and no extra permissions', function () {
     $manifest = json_decode(file_get_contents(dirname(__DIR__).'/nativephp.json'), true);
 
-    expect($manifest['platforms']['ios']['permissions'])->toBeEmpty();
+    expect($manifest['ios']['min_version'])->toBe('13.0')
+        ->and($manifest['ios']['permissions'] ?? [])->toBeEmpty();
 });
 
 // ─── Native files ────────────────────────────────────────────────

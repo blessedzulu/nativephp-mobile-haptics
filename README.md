@@ -16,7 +16,7 @@ Haptic feedback plugin for [NativePHP Mobile](https://nativephp.com) — impact,
 
 - PHP 8.2+
 - Laravel 11, 12 or 13
-- NativePHP Mobile
+- NativePHP Mobile 3.0+
 
 ## Installation
 
