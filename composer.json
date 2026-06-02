@@ -2,6 +2,7 @@
     "name": "blessedzulu/nativephp-mobile-haptics",
     "description": "Haptic feedback plugin for NativePHP Mobile - impact, notification, selection, vibrate & pattern. Fork of graymatter/nativephp-mobile-haptics, modernised for Laravel 13.",
     "type": "nativephp-plugin",
+    "version": "1.1.0",
     "license": "MIT",
     "keywords": [
         "nativephp",
