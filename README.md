@@ -1,8 +1,8 @@
 # NativePHP Mobile Haptics
 
-Haptic feedback plugin for [NativePHP Mobile](https://nativephp.com) — impact, notification, selection, vibrate & pattern.
+Haptic feedback plugin for [NativePHP Mobile](https://nativephp.com) - impact, notification, selection, vibrate & pattern.
 
-> Fork of [graymatter/nativephp-mobile-haptics](https://github.com/graymattertechnology/nativephp-mobile-haptics), modernised for Laravel 13 (widened `illuminate/support` constraint) and fixed to send the `{ method, params }` body shape NativePHP core's `/_native/api/call` actually expects. All credit for the original implementation goes to GrayMatter.
+> **Stable**, verified on real iOS and Android hardware. A fork of [graymatter/nativephp-mobile-haptics](https://github.com/graymattertechnology/nativephp-mobile-haptics), updated for Laravel 13 and current NativePHP Mobile. Full credit for the original implementation goes to GrayMatter.
 
 ## Features
 
@@ -10,7 +10,7 @@ Haptic feedback plugin for [NativePHP Mobile](https://nativephp.com) — impact,
 - **Cross-platform**: native iOS (`UIFeedbackGenerator`) and Android (`VibrationEffect`) implementations
 - **PHP + JavaScript**: use from Livewire/Blade or Vue/React/Inertia
 - **Graceful degradation**: returns `false` on simulators or missing hardware
-- **Zero config**: install and use — no publish, no migrations
+- **Zero config**: install and use - no publish, no migrations
 
 ## Requirements
 
@@ -31,23 +31,23 @@ The service provider and facade are auto-discovered.
 ```php
 use BlessedZulu\NativePHP\Mobile\Haptics\Facades\Haptics;
 
-// Impact feedback — for button taps, collisions, UI emphasis
+// Impact feedback - for button taps, collisions, UI emphasis
 Haptics::impact('light');    // light, medium (default), heavy, rigid, soft
 
-// Notification feedback — for async operation results
+// Notification feedback - for async operation results
 Haptics::notification('success');  // success (default), warning, error
 
-// Selection feedback — for pickers, sliders, toggles
+// Selection feedback - for pickers, sliders, toggles
 Haptics::selection();
 
-// Raw vibration (ms) — native on Android, approximated on iOS
+// Raw vibration (ms) - native on Android, approximated on iOS
 Haptics::vibrate(300);
 
 // Vibration pattern [vibrate, pause, vibrate, pause, ...]
 Haptics::pattern([100, 50, 200, 50, 100]);
 ```
 
-All methods return `bool` — `true` on success, `false` on failure or missing hardware.
+All methods return `bool` - `true` on success, `false` on failure or missing hardware.
 
 ## Usage (JavaScript)
 
@@ -75,9 +75,9 @@ await impact('medium');
 |--------|-----------|---------|-------------|
 | `impact($style)` | `light`, `medium`, `heavy`, `rigid`, `soft` | `medium` | Impact haptic feedback |
 | `notification($type)` | `success`, `warning`, `error` | `success` | Notification haptic feedback |
-| `selection()` | — | — | Selection tick feedback |
-| `vibrate($ms)` | `1`–`5000` | `200` | Raw vibration in milliseconds |
-| `pattern($array)` | `[vibrate, pause, ...]` | — | Custom vibration pattern |
+| `selection()` | - | - | Selection tick feedback |
+| `vibrate($ms)` | `1` - `5000` | `200` | Raw vibration in milliseconds |
+| `pattern($array)` | `[vibrate, pause, ...]` | - | Custom vibration pattern |
 
 ## Platform Differences
 
@@ -109,4 +109,4 @@ composer test
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

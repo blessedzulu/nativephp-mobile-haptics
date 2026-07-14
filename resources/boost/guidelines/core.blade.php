@@ -1,5 +1,5 @@
 {{--
-    NativePHP Mobile Haptics — Plugin Dev Kit / AI Guidelines
+    NativePHP Mobile Haptics - Plugin Dev Kit / AI Guidelines
     This file is consumed by the NativePHP Boost AI assistant.
 --}}
 
@@ -14,7 +14,7 @@ Provides haptic feedback (vibrations) for NativePHP Mobile apps on iOS and Andro
 | `Haptics::impact($style)` | `light`, `medium` (default), `heavy`, `rigid`, `soft` | Triggers an impact haptic. Use for button taps, collisions, or UI emphasis. |
 | `Haptics::notification($type)` | `success` (default), `warning`, `error` | Triggers a notification haptic. Use after async operations complete. |
 | `Haptics::selection()` | None | Triggers a selection tick. Use for pickers, sliders, and toggles. |
-| `Haptics::vibrate($ms)` | Duration in ms (1–5000, default 200) | Raw vibration. Native on Android, approximated on iOS. |
+| `Haptics::vibrate($ms)` | Duration in ms (1 - 5000, default 200) | Raw vibration. Native on Android, approximated on iOS. |
 | `Haptics::pattern($array)` | Array of ms durations `[vibrate, pause, vibrate, ...]` | Vibration pattern. Native on Android, approximated on iOS. |
 
 ### Usage (PHP)
@@ -49,5 +49,5 @@ await haptics.selection();
 - Use `impact()` for direct user interactions (button presses, drag snaps).
 - Use `notification()` sparingly for meaningful state changes (payment confirmed, upload failed).
 - Use `selection()` for continuous feedback in pickers and sliders.
-- Avoid excessive haptics — they lose effectiveness and annoy users.
+- Avoid excessive haptics - they lose effectiveness and annoy users.
 - All methods return `bool` and degrade gracefully (return `false` on simulators or missing hardware).
