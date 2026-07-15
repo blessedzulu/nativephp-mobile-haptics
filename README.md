@@ -2,8 +2,6 @@
 
 Haptic feedback plugin for [NativePHP Mobile](https://nativephp.com) - impact, notification, selection, vibrate & pattern.
 
-> **Stable**, verified on real iOS and Android hardware.
-
 ## Features
 
 - **5 haptic types**: impact, notification, selection, raw vibrate, and custom patterns
