@@ -2,7 +2,7 @@
 
 Haptic feedback plugin for [NativePHP Mobile](https://nativephp.com) - impact, notification, selection, vibrate & pattern.
 
-> **Stable**, verified on real iOS and Android hardware. A fork of [graymatter/nativephp-mobile-haptics](https://github.com/graymattertechnology/nativephp-mobile-haptics), updated for Laravel 13 and current NativePHP Mobile. Full credit for the original implementation goes to GrayMatter.
+> **Stable**, verified on real iOS and Android hardware.
 
 ## Features
 
@@ -106,6 +106,10 @@ if ($user->prefersHaptics()) {
 ```bash
 composer test
 ```
+
+## Credits
+
+A fork of [graymatter/nativephp-mobile-haptics](https://github.com/graymattertechnology/nativephp-mobile-haptics), updated for Laravel 13 and current NativePHP Mobile. Full credit for the original implementation goes to GrayMatter.
 
 ## License
 
